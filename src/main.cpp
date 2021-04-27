@@ -7,11 +7,13 @@
 #include <output/printer.h>
 #include <processors/agreggator.h>
 #include <alarm/alarm.h>
+#include <actuator/led.h>
 
 uint8_t source_lm35 = A0;
 AnalogSensor sensor = AnalogSensor(0x7E, source_lm35);
 Lm35Sensors sensor_lm35 = Lm35Sensors(13, source_lm35);
 PromedioTotal<int> Suma_valores = PromedioTotal<int>();
+Led led = Led(0xAC, 13); 
 
 
 void setup() {
@@ -33,5 +35,15 @@ sensor.excecute();
 
     float promedio = Suma_valores.Suma(raw_lm35);
     bool compare = Compare(promedio);
+    WriteABC<bool> value = WriteABC<bool>(compare,source_lm35);
+    led.setValue(value);
+    led.excecute();
+
+    Serial.print("Promedio: ");
+    Serial.print(promedio);
+    Serial.print("\n  ");
+    delay(5000);
+
+    Printer(Serial, promedio, "Promedio: ");
   
 }

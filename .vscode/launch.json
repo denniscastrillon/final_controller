@@ -1,0 +1,34 @@
+// AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
+//
+// PIO Unified Debugger
+//
+// Documentation: https://docs.platformio.org/page/plus/debugging.html
+// Configuration: https://docs.platformio.org/page/projectconf/section_env_debug.html
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug",
+            "executable": "c:/Users/Hp-User/OneDrive - Universidad EAFIT/Semestre 11 - Diseño de sistemas tecnicos Parte II/Sistemas digitales avanzados/Proyecto_Sis_Dig/controller_design/.pio/build/pico32/firmware.elf",
+            "projectEnvName": "pico32",
+            "toolchainBinDir": "C:/Users/Hp-User/.platformio/packages/toolchain-xtensa32/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "preLaunchTask": {
+                "type": "PlatformIO",
+                "task": "Pre-Debug"
+            }
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (skip Pre-Debug)",
+            "executable": "c:/Users/Hp-User/OneDrive - Universidad EAFIT/Semestre 11 - Diseño de sistemas tecnicos Parte II/Sistemas digitales avanzados/Proyecto_Sis_Dig/controller_design/.pio/build/pico32/firmware.elf",
+            "projectEnvName": "pico32",
+            "toolchainBinDir": "C:/Users/Hp-User/.platformio/packages/toolchain-xtensa32/bin",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

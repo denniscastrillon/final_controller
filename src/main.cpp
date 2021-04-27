@@ -30,7 +30,7 @@ void loop() {
 
     float promedio = Suma_valores.Suma(raw_lm35);
     bool bool_value = to_bool(promedio);
-    WriteABC<bool> value = WriteABC<bool>(bool_value,source_lm35);
+    ValueABC<bool> value = ValueABC<bool>(bool_value,source_lm35);
     led.setValue(value);
     led.excecute();
 

@@ -1,13 +1,13 @@
-#ifndef WRITE_H
-#define WRITE_H
+#ifndef VALUE_H
+#define VALUE_H
 
 #include <Arduino.h>
 
 template<class T>
-class WriteABC {
+class ValueABC {
     public:
-        WriteABC();
-        WriteABC(T value, uint8_t source);
+        ValueABC();
+        ValueABC(T value, uint8_t source);
         uint8_t getSource();
         T getValue();
     private:
@@ -16,21 +16,21 @@ class WriteABC {
 };
 
 template<class T>
-WriteABC<T>::WriteABC(T value, uint8_t source) {
+ValueABC<T>::ValueABC(T value, uint8_t source) {
     this->value = value;
     this->source = source;
 }
 
 template<class T>
-WriteABC<T>::WriteABC() {}
+ValueABC<T>::ValueABC() {}
 
 template<class T>
-T WriteABC<T>::getValue() {
+T ValueABC<T>::getValue() {
     return this->value;
 }
 
 template<class T>
-uint8_t WriteABC<T>::getSource() {
+uint8_t ValueABC<T>::getSource() {
     return this->source;
 }
 

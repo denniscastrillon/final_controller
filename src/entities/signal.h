@@ -2,13 +2,13 @@
 #define SIGNAL_H
 
 #include <Arduino.h>
-#include <entities/write.h>
+#include <entities/value.h>
 
 
-class Signal : public WriteABC<float> {
+class Signal : public ValueABC<float> {
     public:
-        Signal():WriteABC(){};
-        Signal(float value, uint8_t source):WriteABC(value, source){};
+        Signal():ValueABC(){};
+        Signal(float value, uint8_t source):ValueABC(value, source){};
 };
 
 #endif

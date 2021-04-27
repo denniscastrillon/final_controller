@@ -6,7 +6,7 @@
 #include <processors/transformer.h>
 #include <output/printer.h>
 #include <processors/agreggator.h>
-#include <alarm/alarm.h>
+#include <values/to_bool.h>
 #include <actuator/led.h>
 
 uint8_t source_lm35 = A0;
@@ -29,8 +29,8 @@ void loop() {
     Printer(Serial, temp_farenheit, "La temperatura en Farenheit fue: ");
 
     float promedio = Suma_valores.Suma(raw_lm35);
-    bool compare = Compare(promedio);
-    WriteABC<bool> value = WriteABC<bool>(compare,source_lm35);
+    bool bool_value = to_bool(promedio);
+    WriteABC<bool> value = WriteABC<bool>(bool_value,source_lm35);
     led.setValue(value);
     led.excecute();
 

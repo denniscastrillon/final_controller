@@ -5,10 +5,12 @@
 #include <sensors/lm35_sensors.h>
 #include <processors/transformer.h>
 #include <output/printer.h>
+#include <processors/agreggator.h>
 
 uint8_t source_lm35 = A0;
 AnalogSensor sensor = AnalogSensor(0x7E, source_lm35);
 Lm35Sensors sensor_lm35 = Lm35Sensors(13, source_lm35);
+PromedioTotal<int> Suma_valores = PromedioTotal<int>();
 
 
 void setup() {
@@ -27,5 +29,7 @@ sensor.excecute();
 
     float temp_farenheit=To_Farenheit(raw_lm35);
     Printer(Serial, temp_farenheit, "La temperatura en Farenheit fue: ");
+
+    float promedio = Suma_valores.Suma(raw_lm35);
   
 }

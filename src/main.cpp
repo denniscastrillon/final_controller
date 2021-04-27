@@ -4,6 +4,7 @@
 #include <sensors/digital_sensor.h>
 #include <sensors/lm35_sensors.h>
 #include <processors/transformer.h>
+#include <output/printer.h>
 
 uint8_t source_lm35 = A0;
 AnalogSensor sensor = AnalogSensor(0x7E, source_lm35);
@@ -25,6 +26,6 @@ sensor.excecute();
     Serial.print("\n  ");
 
     float temp_farenheit=To_Farenheit(raw_lm35);
-    
+    Printer(Serial, temp_farenheit, "La temperatura en Farenheit fue: ");
   
 }

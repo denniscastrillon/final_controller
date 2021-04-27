@@ -6,6 +6,7 @@
 #include <processors/transformer.h>
 #include <output/printer.h>
 #include <processors/agreggator.h>
+#include <alarm/alarm.h>
 
 uint8_t source_lm35 = A0;
 AnalogSensor sensor = AnalogSensor(0x7E, source_lm35);
@@ -31,5 +32,6 @@ sensor.excecute();
     Printer(Serial, temp_farenheit, "La temperatura en Farenheit fue: ");
 
     float promedio = Suma_valores.Suma(raw_lm35);
+    bool compare = Compare(promedio);
   
 }
